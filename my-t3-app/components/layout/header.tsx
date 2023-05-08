@@ -1,6 +1,5 @@
 import DarkmodeSwitcher from "./darkmode-switcher";
 import React from "react";
-import {UserRounded} from "../ui/user-model";
 import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs";
 
 export const Header = () => {
