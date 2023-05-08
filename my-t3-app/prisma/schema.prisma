@@ -1,0 +1,151 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Category {
+  id       String    @id @default(cuid())
+  name     String    @unique
+  image    String?
+  products Product[]
+}
+
+model Product {
+  id          String               @id @default(cuid())
+  title       String
+  description String
+  price       Float
+  quantity    Int                  @default(1)
+  rating      Float
+  brand       String
+  images      ProductImages[]
+  categoryId  String
+  cartItems   CartItem[]
+  orderItems  OrderItem[]
+  category    Category             @relation(fields: [categoryId], references: [id])
+  wishlist    WishlistOnProducts[]
+
+  @@index([categoryId])
+}
+
+model ProductImages {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  products Product[]
+}
+
+model Wishlist {
+  id     String               @id @default(cuid())
+  userId String               @unique
+  user   User                 @relation(fields: [userId], references: [id])
+  items  WishlistOnProducts[]
+}
+
+model WishlistOnProducts {
+  wishlistId String
+  itemId     String
+  item       Product  @relation(fields: [itemId], references: [id])
+  wishlist   Wishlist @relation(fields: [wishlistId], references: [id])
+
+  @@id([wishlistId, itemId])
+  @@index([itemId])
+  @@index([wishlistId])
+}
+
+model Cart {
+  id        String     @id @default(cuid())
+  userId    String     @unique
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  cartItems CartItem[]
+
+  @@index([userId])
+}
+
+model CartItem {
+  id        String  @id @default(cuid())
+  quantity  Int     @default(1)
+  productID String
+  cartID    String
+  cart      Cart    @relation(fields: [cartID], references: [id])
+  product   Product @relation(fields: [productID], references: [id])
+
+  @@index([cartID])
+  @@index([productID])
+}
+
+model Order {
+  id         String      @id @default(cuid())
+  userId     String
+  totalPrice Float
+  user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orderItems OrderItem[]
+
+  @@index([userId])
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  quantity  Int
+  orderID   String
+  productId String
+  order     Order   @relation(fields: [orderID], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@index([orderID])
+  @@index([productId])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  cart          Cart?
+  orders        Order[]
+  sessions      Session[]
+  wishlist      Wishlist?
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
