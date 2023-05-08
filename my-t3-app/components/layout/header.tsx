@@ -1,6 +1,7 @@
 import DarkmodeSwitcher from "./darkmode-switcher";
 import React from "react";
 import {UserRounded} from "../ui/user-model";
+import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs";
 
 export const Header = () => {
     return (
@@ -11,7 +12,14 @@ export const Header = () => {
                 </p>
 
                <div className="flex gap-8">
-                   <UserRounded />
+                   <SignedIn>
+                       {/* Mount the UserButton component */}
+                       <UserButton />
+                   </SignedIn>
+                   <SignedOut>
+                       {/* Signed out users get sign in button */}
+                       <SignInButton />
+                   </SignedOut>
                    <div className="border-l dark:border-l-zinc-800 flex pl-4">
                        <DarkmodeSwitcher />
                    </div>
