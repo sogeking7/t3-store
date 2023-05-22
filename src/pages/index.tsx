@@ -3,10 +3,9 @@ import Head from 'next/head'
 
 import { api } from '~/utils/api'
 import React from 'react'
-import { Header } from '../../components/layout/header'
+import { Header } from '../../components/layout/header/header'
 
 const Home: NextPage = () => {
-
 	return (
 		<>
 			<Head>

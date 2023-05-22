@@ -4,6 +4,9 @@ dependencies:
   '@clerk/nextjs':
     specifier: ^4.17.1
     version: 4.17.1(next@13.2.4)(react-dom@18.2.0)(react@18.2.0)
+  '@clerk/themes':
+    specifier: ^1.7.2
+    version: 1.7.2(react@18.2.0)
   '@headlessui/react':
     specifier: ^1.7.14
     version: 1.7.14(react-dom@18.2.0)(react@18.2.0)
@@ -67,6 +70,9 @@ dependencies:
   superjson:
     specifier: 1.12.2
     version: 1.12.2
+  tabler-icons-react:
+    specifier: ^1.56.0
+    version: 1.56.0(react@18.2.0)
   zod:
     specifier: ^3.21.4
     version: 3.21.4
@@ -394,6 +400,15 @@ packages:
 
   /@clerk/shared@0.15.7(react@18.2.0):
     resolution: {integrity: sha512-8kinCWFF28K8N/OCqfZYIEzxpyH8+HFZ1BmfloQLDSsiy8kpUljk3qbKkBRoHAxJKohSjZL6ax+IpBzt2FmkZw==}
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /@clerk/themes@1.7.2(react@18.2.0):
+    resolution: {integrity: sha512-jMTb1sIU+Sw0kJPAvBXQPaZSBpTfE+8tmWPGnVkGRojb5Gl1pZnuNbDwvpuFZuP5RnV9P2krSyUcstC/OMfWjg==}
+    engines: {node: '>=14'}
     peerDependencies:
       react: '>=16'
     dependencies:
@@ -3788,6 +3803,14 @@ packages:
       '@pkgr/utils': 2.3.1
       tslib: 2.5.0
     dev: true
+
+  /tabler-icons-react@1.56.0(react@18.2.0):
+    resolution: {integrity: sha512-FOme3w6PJIWDpeXqQ4xjArQqdxzrr9xNy7PSSgWpRzOUQ71RyZ7jt6WThsfyLBz5os78TPJRA8f/0NLjnKcx9A==}
+    peerDependencies:
+      react: '>= 16.8.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /tailwindcss@3.3.0(postcss@8.4.21):
     resolution: {integrity: sha512-hOXlFx+YcklJ8kXiCAfk/FMyr4Pm9ck477G0m/us2344Vuj355IpoEDB5UmGAsSpTBmr+4ZhjzW04JuFXkb/fw==}

@@ -1,11 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
-import { Header } from '../../../components/layout/header'
+import { Header } from '../../../components/layout/header/header'
 import { UserProfile } from '@clerk/nextjs'
 import { api } from '~/utils/api'
 
 export default function ProfilePage() {
-	
 	return (
 		<>
 			<Head>

@@ -17,7 +17,7 @@ const ThemeSwitch = () => {
 	return (
 		<select
 			value={theme}
-			className='outline-none rounded-full px-3 dark:bg-zinc-800  appearance-none'
+			className='outline-none rounded-full px-3 dark:bg-zinc-800 bg-slate-200 text-zinc-600 dark:text-gray-300 font-bold  appearance-none'
 			onChange={e => setTheme(e.target.value)}
 		>
 			<option value='dark'>Dark</option>
