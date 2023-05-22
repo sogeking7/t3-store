@@ -12,17 +12,20 @@ const ThemeSwitch = () => {
 
 	if (!mounted) {
 		return null
-	}
+	}	
 
 	return (
-		<select
-			value={theme}
-			className='outline-none rounded-full px-3 dark:bg-zinc-800 bg-slate-200 text-zinc-600 dark:text-gray-300 font-bold  appearance-none'
-			onChange={e => setTheme(e.target.value)}
+		<button
+			className={`outline-none rounded-full px-3 ${theme == 'light' ? 'bg-yellow-200 ' : 'dark:bg-indigo-600 '} text-zinc-600 dark:text-gray-100 font-bold appearance-none`}
+			onClick={() => {
+				if (theme === 'dark') 
+					setTheme('light')
+				else 
+					setTheme('dark')
+			}}
 		>
-			<option value='dark'>Dark</option>
-			<option value='light'>Light</option>
-		</select>
+			{theme}
+		</button>
 	)
 }
 

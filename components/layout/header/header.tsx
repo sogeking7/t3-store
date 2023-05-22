@@ -14,8 +14,8 @@ export const Header: FC = () => {
 				<div className='flex gap-8'>
 					<div className='flex gap-4'>
 					<UserButtonComponent />
-						<IconBtn icon={<IconShoppingCart />} />
-						<IconBtn icon={<IconHeart />} />
+						<IconBtn icon={<IconShoppingCart />} path={'/cart'}/>
+						<IconBtn icon={<IconHeart />} path={'/wishlist'}/>
 					</div>
 					<div className='border-l dark:border-l-zinc-800 flex pl-4'>
 						<DarkmodeSwitcher />
