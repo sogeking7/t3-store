@@ -1,12 +1,13 @@
-import DarkmodeSwitcher from './darkmode-switcher'
+import DarkmodeSwitcher from '../ui/darkmode-switcher'
 import React from 'react'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import { Logo } from 'components/ui/logo'
 
 export const Header = () => {
 	return (
 		<div className='h-[60px] border-b-[1px] dark:border-b-zinc-800'>
 			<div className='cont flex justify-between items-center h-full'>
-				<p className='text-2xl font-medium'>t3-store</p>
+				<Logo />
 
 				<div className='flex gap-8'>
 					<SignedIn>
