@@ -6,9 +6,6 @@ import React from 'react'
 import { Header } from '../../components/layout/header'
 
 const Home: NextPage = () => {
-	const user = api.user.me.useQuery()
-
-	console.log(user.data)
 
 	return (
 		<>

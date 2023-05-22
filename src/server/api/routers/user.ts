@@ -1,12 +1,13 @@
-import { createTRPCRouter, protectedProcedure } from '~/server/api/trpc'
-import { prisma } from '~/server/db'
+import { z } from 'zod'
+
+import {
+	createTRPCRouter,
+	publicProcedure,
+} from '~/server/api/trpc'
 
 export const userRouter = createTRPCRouter({
-	me: protectedProcedure.query(async ({ ctx }) => {
-		return await prisma.user.findUnique({
-			where: {
-				id: ctx.session.user.id
-			}
-		})
-	})
+	getId: publicProcedure.query(async ({ ctx }) => {
+        const userId = ctx.userId
+        return userId;
+    }),
 })
