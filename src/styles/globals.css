@@ -10,6 +10,12 @@
 		@apply bg-blue-600 text-white shadow-md hover:bg-blue-700;
 	}
 	.cont {
-		@apply container mx-auto px-4;
+		@apply max-w-[1280px]  mx-auto;
+	}
+	.filter-bar-cont {
+		@apply w-1/4
+	}
+	.main-cont {
+		@apply w-3/4 px-2
 	}
 }

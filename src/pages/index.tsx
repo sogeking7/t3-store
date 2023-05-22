@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { api } from '~/utils/api'
 import React from 'react'
 import { Header } from '../../components/layout/header/header'
+import { FilterBar } from 'components/layout/filter-bar/filter-bar'
 
 const Home: NextPage = () => {
 	return (
@@ -15,7 +16,14 @@ const Home: NextPage = () => {
 			</Head>
 			<main className=''>
 				<Header />
-				<div className='cont'></div>
+				<div className='cont flex h-screen pt-4 gap-4	'>
+					<div className='filter-bar-cont'> 
+						<FilterBar />
+					</div>
+					<div className='main-cont h-screen bg-green-300'>
+						
+					</div>
+				</div>
 			</main>
 		</>
 	)
