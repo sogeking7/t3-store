@@ -34,7 +34,7 @@ let categories = [
 
 export const FilterBar: FC = () => {
 	return (
-		<div className='w-full h-screen p-2'>
+		<div className='w-full h-screen'>
 			<button
 				type='button'
 				className='focus:ring-2 focus:outline-none focus:ring-blue-300 font-bold rounded-xl px-2 py-2 text-center inline-flex items-center dark:focus:ring-blue-800'

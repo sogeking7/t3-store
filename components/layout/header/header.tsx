@@ -9,8 +9,8 @@ import { SearchInput } from './search-input'
 export const Header: FC = () => {
 	return (
 		<div className='h-[60px]'>
-			<div className='cont  flex justify-between items-center h-full gap-4 '>
-				<div className='filter-bar-cont flex justify-start pl-3'>
+			<div className='cont flex justify-between items-center h-full gap-4 '>
+				<div className='filter-bar-cont flex justify-start pl-2'>
 					<Logo />
 				</div>
 
