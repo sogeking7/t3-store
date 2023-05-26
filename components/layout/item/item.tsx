@@ -6,9 +6,13 @@ export const Item: FC = () => {
 		<div>
 			<div className='aspect-square bg-contain mb-4'>
 				<Image
-					src='https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/12/Luffy-during-Onigashima-raid.jpg'
+					src='/img/Luffy-during-Onigashima-raid.webp'
 					alt='Product Image'
-					className='w-full h-full object-cover rounded-3xl'
+					className='object-cover rounded-3xl'
+					width={0}
+					height={0}
+					sizes="100vw"
+					style={{ width: '100%', height: '100%' }}
 				/>
 			</div>
 			<h2 className='text-gray-800 dark:text-gray-200 text-lg font-semibold'>
