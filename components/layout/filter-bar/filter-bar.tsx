@@ -1,36 +1,37 @@
 import type { FC } from 'react'
 import { FilterCatBtn } from './filter-cat-button'
 
-const categories = [
-	'Cellphones & Telecommunications',
-	'Computer & Office',
-	'Consumer Electronics',
-	'Home Appliances',
-	'Security & Protection',
-	'Home Improvement',
-	'Lights & Lighting',
-	'Home & Garden',
-	'Tools',
-	'Education & Office Supplies',
-	'Automobiles & Motorcycles',
-	'Furniture',
-	"Men's Clothing",
-	"Women's Clothing",
-	'Shoes',
-	"Children's Clothing & Shoes",
-	'Apparel Accessories',
-	'Jewelry & Accessories',
-	'Watches',
-	'Luggage & Bags',
-	'Sports & Entertainment',
-	'Mother & Kids',
-	'Toys & Hobbies',
-	'Beauty & Health',
-	'Novelty & Special Use',
-	'Hair Extensions & Wigs',
-	'Electronic Components & Supplies',
-	'Weddings & Events'
-]
+export const categories = [
+	{ id: 1, name: 'Cellphones & Telecommunications' },
+	{ id: 2, name: 'Computer & Office' },
+	{ id: 3, name: 'Consumer Electronics' },
+	{ id: 4, name: 'Home Appliances' },
+	{ id: 5, name: 'Security & Protection' },
+	{ id: 6, name: 'Home Improvement' },
+	{ id: 7, name: 'Lights & Lighting' },
+	{ id: 8, name: 'Home & Garden' },
+	{ id: 9, name: 'Tools' },
+	{ id: 10, name: 'Education & Office Supplies' },
+	{ id: 11, name: 'Automobiles & Motorcycles' },
+	{ id: 12, name: 'Furniture' },
+	{ id: 13, name: "Men's Clothing" },
+	{ id: 14, name: "Women's Clothing" },
+	{ id: 15, name: 'Shoes' },
+	{ id: 16, name: "Children's Clothing & Shoes" },
+	{ id: 17, name: 'Apparel Accessories' },
+	{ id: 18, name: 'Jewelry & Accessories' },
+	{ id: 19, name: 'Watches' },
+	{ id: 20, name: 'Luggage & Bags' },
+	{ id: 21, name: 'Sports & Entertainment' },
+	{ id: 22, name: 'Mother & Kids' },
+	{ id: 23, name: 'Toys & Hobbies' },
+	{ id: 24, name: 'Beauty & Health' },
+	{ id: 25, name: 'Novelty & Special Use' },
+	{ id: 26, name: 'Hair Extensions & Wigs' },
+	{ id: 27, name: 'Electronic Components & Supplies' },
+	{ id: 28, name: 'Weddings & Events' },
+];
+
 
 export const FilterBar: FC = () => {
 	return (
@@ -55,9 +56,9 @@ export const FilterBar: FC = () => {
 				</svg>
 			</button>
 			<ul className=' font-medium'>
-				{categories.map((category, index) => (
+				{categories.map(({name}, index) => (
 					<li key={index}>
-						<FilterCatBtn title={category} />
+						<FilterCatBtn title={name} />
 					</li>
 				))}
 			</ul>
