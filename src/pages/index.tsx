@@ -5,8 +5,11 @@ import React from 'react'
 import { Header } from '../../components/layout/header/header'
 import { FilterBar } from 'components/layout/filter-bar/filter-bar'
 import { Item } from 'components/layout/item/item'
+import { api } from '~/utils/api'
 
 const Home: NextPage = () => {
+	const { data } = api.product.getAllProducts.useQuery()
+
 	return (
 		<>
 			<Head>
@@ -21,12 +24,21 @@ const Home: NextPage = () => {
 						<FilterBar />
 					</div>
 					<div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 gap-x-4 gap-y-8 main-cont h-1 py-2'>
-						<Item />
-						<Item />
-						<Item />
-						<Item />
-						<Item />
-						<Item />
+						{data?.map((product, ind) => {
+							return (
+								<Item
+									key={ind}
+									data={{
+										title: product.title,
+										description: product.description,
+										price: product.price,
+										quantity: product.quantity,
+										rating: product.rating,
+										brand: product.brand
+									}}
+								/>
+							)
+						})}
 					</div>
 				</div>
 			</main>
