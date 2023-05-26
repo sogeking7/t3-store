@@ -9,7 +9,7 @@ datasource db {
 }
 
 model Category {
-  id       String    @id @default(cuid())
+  id       Int    @id @default(autoincrement())
   name     String    @unique
   image    String?
   products Product[]
@@ -24,7 +24,7 @@ model Product {
   rating      Float
   brand       String
   images      ProductImages[]
-  categoryId  String
+  categoryId  Int
   category    Category             @relation(fields: [categoryId], references: [id])
   wishlist    WishlistOnProducts[]
 
