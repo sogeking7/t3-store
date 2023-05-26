@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 import { FilterCatBtn } from './filter-cat-button'
 
-let categories = [
+const categories = [
 	'Cellphones & Telecommunications',
 	'Computer & Office',
 	'Consumer Electronics',

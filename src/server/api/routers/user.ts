@@ -1,4 +1,3 @@
-import { z } from 'zod'
 
 import {
 	createTRPCRouter,
@@ -6,7 +5,7 @@ import {
 } from '~/server/api/trpc'
 
 export const userRouter = createTRPCRouter({
-	getId: publicProcedure.query(async ({ ctx }) => {
+	getId: publicProcedure.query( ({ ctx }) => {
         const userId = ctx.userId
         return userId;
     }),

@@ -1,5 +1,5 @@
 import DarkmodeSwitcher from '../../ui/darkmode-switcher'
-import React, { FC } from 'react'
+import type { FC } from 'react'
 import { Logo } from 'components/ui/logo'
 import { UserButtonComponent } from './user-button'
 import { IconBtn } from 'components/ui/icon-btn'

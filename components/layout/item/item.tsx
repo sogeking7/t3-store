@@ -1,11 +1,11 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 import Image from 'next/image'
 
 export const Item: FC = () => {
 	return (
 		<div>
 			<div className='aspect-square bg-contain mb-4'>
-				<img
+				<Image
 					src='https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/12/Luffy-during-Onigashima-raid.jpg'
 					alt='Product Image'
 					className='w-full h-full object-cover rounded-3xl'

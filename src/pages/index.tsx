@@ -1,7 +1,6 @@
 import { type NextPage } from 'next'
 import Head from 'next/head'
 
-import { api } from '~/utils/api'
 import React from 'react'
 import { Header } from '../../components/layout/header/header'
 import { FilterBar } from 'components/layout/filter-bar/filter-bar'
