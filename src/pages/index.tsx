@@ -34,7 +34,8 @@ const Home: NextPage = () => {
 										price: product.price,
 										quantity: product.quantity,
 										rating: product.rating,
-										brand: product.brand
+										brand: product.brand,
+										images: product.images
 									}}
 								/>
 							)

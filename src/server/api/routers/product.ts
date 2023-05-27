@@ -17,6 +17,10 @@ export const productRouter = createTRPCRouter({
 	//     }),
 
 	getAllProducts: publicProcedure.query(async () => {
-		return await prisma.product.findMany({})
+		return await prisma.product.findMany({
+			include: {
+				images: true
+			}
+		})
 	})
 })
