@@ -20,7 +20,15 @@ const config = {
   },
 
   images: {
-    domains: ['http://localhost:3000'], //make it 'your-domain.com'
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '/seed/**',
+      },
+    ],
+    domains: ['http://localhost:3000', 'picsum.photos'] //make it 'your-domain.com'
   },
 };
 export default config;

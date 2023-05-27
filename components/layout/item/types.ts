@@ -6,6 +6,11 @@ export interface IItemProps {
 		quantity: number
 		rating: number
 		brand: string
+		images: [
+			{
+				url: string
+			}
+		]
 		// categoryName: string
 	}
 }

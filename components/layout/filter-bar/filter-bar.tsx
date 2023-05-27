@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import { FilterCatBtn } from './filter-cat-button'
+import { IconArrowRight } from '@tabler/icons-react'
 
 export const categories = [
 	{ id: 1, name: 'Cellphones & Telecommunications' },
@@ -29,9 +30,8 @@ export const categories = [
 	{ id: 25, name: 'Novelty & Special Use' },
 	{ id: 26, name: 'Hair Extensions & Wigs' },
 	{ id: 27, name: 'Electronic Components & Supplies' },
-	{ id: 28, name: 'Weddings & Events' },
-];
-
+	{ id: 28, name: 'Weddings & Events' }
+]
 
 export const FilterBar: FC = () => {
 	return (
@@ -41,22 +41,10 @@ export const FilterBar: FC = () => {
 				className='focus:ring-2 focus:outline-none focus:ring-blue-300 font-bold rounded-xl px-2 py-2 text-center inline-flex items-center dark:focus:ring-blue-800'
 			>
 				Categories
-				<svg
-					aria-hidden='true'
-					className='w-5 h-5 ml-2 -mr-1'
-					fill='currentColor'
-					viewBox='0 0 20 20'
-					xmlns='http://www.w3.org/2000/svg'
-				>
-					<path
-						fill-rule='evenodd'
-						d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z'
-						clip-rule='evenodd'
-					></path>
-				</svg>
+				<IconArrowRight />
 			</button>
 			<ul className=' font-medium'>
-				{categories.map(({name}, index) => (
+				{categories.map(({ name }, index) => (
 					<li key={index}>
 						<FilterCatBtn title={name} />
 					</li>
