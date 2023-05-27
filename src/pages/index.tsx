@@ -4,12 +4,10 @@ import Head from 'next/head'
 import React from 'react'
 import { Header } from '../../components/layout/header/header'
 import { FilterBar } from 'components/layout/filter-bar/filter-bar'
-import { Item } from 'components/layout/item/item'
 import { api } from '~/utils/api'
+import { ItemGrid } from '../../components/layout/item-grid/item-grid'
 
 const Home: NextPage = () => {
-	const { data } = api.product.getAllProducts.useQuery()
-
 	return (
 		<>
 			<Head>
@@ -20,27 +18,10 @@ const Home: NextPage = () => {
 			<main>
 				<Header />
 				<div className='cont flex pt-4 gap-4 '>
-					<div className='filter-bar-cont md:block hidden'>
+					<div className='basis-1/4 filter-bar-cont md:block hidden'>
 						<FilterBar />
 					</div>
-					<div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 gap-x-4 gap-y-8 main-cont h-1 py-2'>
-						{data?.map((product, ind) => {
-							return (
-								<Item
-									key={ind}
-									data={{
-										title: product.title,
-										description: product.description,
-										price: product.price,
-										quantity: product.quantity,
-										rating: product.rating,
-										brand: product.brand,
-										images: product.images
-									}}
-								/>
-							)
-						})}
-					</div>
+					<ItemGrid />
 				</div>
 			</main>
 		</>
