@@ -6,11 +6,12 @@ export interface IItemProps {
 		quantity: number
 		rating: number
 		brand: string
-		images: [
-			{
-				url: string
-			}
-		]
+		images: Image[]
 		// categoryName: string
 	}
+}
+
+interface Image {
+	id: number
+	url: string
 }
