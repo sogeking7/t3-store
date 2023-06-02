@@ -1,13 +1,13 @@
 import { PrismaClient } from '@prisma/client'
 import { faker } from '@faker-js/faker'
-import { categories } from '../components/layout/category-bar/category-bar'
+import { data as categories } from '../public/data/categories'
 
 const prisma = new PrismaClient()
 
 async function main() {
 	console.log('seeding')
-	await prisma.product.deleteMany()
-	for (let i = 0; i < 100; i++) {
+	// await prisma.product.deleteMany()
+	for (let i = 0; i < 15; i++) {
 		await createProduct()
 	}
 	// await prisma.category.deleteMany()
@@ -38,10 +38,11 @@ async function createProduct() {
 }
 
 async function initCategories() {
-	for (let i = 0; i < categories.length; i++) {
+	for (let i = 0; i < 10; i++) {
 		await prisma.category.create({
 			data: {
-				name: categories[i]!.name
+				name: categories[i]!.name,
+				slug: categories[i]!.slug
 			}
 		})
 	}

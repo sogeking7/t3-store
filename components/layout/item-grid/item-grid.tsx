@@ -1,5 +1,5 @@
 import React, { type FC } from 'react'
-import { Item } from '../item/item'
+import { ItemCard } from '../item-card/item-card'
 import { api } from '~/utils/api'
 import { Loader } from '@mantine/core'
 
@@ -16,18 +16,16 @@ export const ItemGrid: FC = () => {
 		return <>{'No Data'}</>
 	}
 	return (
-		<div className='md:basis-3/4 w-full grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 gap-x-4 gap-y-8 h-1 py-2'>
+		<div className='md:basis-3/4 w-full grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 xs:grid-cols-3 phone:grid-cols-2 md:gap-x-4 gap-x-2 gap-y-8 h-1 py-2'>
 			{data?.map((product, ind) => {
 				return (
-					<Item
+					<ItemCard
 						key={ind}
 						data={{
+							id: product.id,
 							title: product.title,
-							description: product.description,
 							price: product.price,
-							quantity: product.quantity,
 							rating: product.rating,
-							brand: product.brand,
 							images: product.images
 						}}
 					/>

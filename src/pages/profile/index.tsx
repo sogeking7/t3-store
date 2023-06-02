@@ -2,8 +2,9 @@ import React from 'react'
 import Head from 'next/head'
 import { Header } from '../../../components/layout/header/header'
 import { UserProfile } from '@clerk/nextjs'
+import { NextPage } from 'next'
 
-export default function ProfilePage() {
+const ProfilePage: NextPage = () => {
 	return (
 		<>
 			<Head>
@@ -20,3 +21,5 @@ export default function ProfilePage() {
 		</>
 	)
 }
+
+export default ProfilePage

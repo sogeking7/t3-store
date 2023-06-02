@@ -13,4 +13,7 @@
 	.cont {
 		@apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl
 	}
+	.cont-t {
+		@apply mx-auto md:px-4 px-2 max-w-7xl lg:px-8
+	}
 }
