@@ -1,4 +1,5 @@
 import { type Config } from 'tailwindcss'
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 export default {
 	darkMode: 'class',
@@ -17,6 +18,11 @@ export default {
 		}
 	},
 	theme: {
+		screens: {
+			phone: '290px',
+			xs: '475px',
+			...defaultTheme.screens
+		},
 		typography: () => ({}),
 		extend: {
 			typography: () => ({
@@ -28,7 +34,7 @@ export default {
 			}),
 			fontFamily: {
 				body: ['Inter']
-			},
+			}
 		}
 	},
 	variants: {},

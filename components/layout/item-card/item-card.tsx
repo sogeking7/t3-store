@@ -1,11 +1,12 @@
 import type { FC } from 'react'
 import Image from 'next/image'
-import { type IItemProps } from './types'
+import { type IItemCardProps } from './types'
 import { Rating } from '@mantine/core'
+import Link from 'next/link'
 
-export const Item: FC<IItemProps> = ({ data }) => {
+export const ItemCard: FC<IItemCardProps> = ({ data }) => {
 	return (
-		<div className='cursor-pointer'>
+		<Link href={`/item/${data.id}`}>
 			<div className='aspect-square bg-contain mb-4'>
 				<Image
 					src={data.images[0]!.url}
@@ -20,10 +21,13 @@ export const Item: FC<IItemProps> = ({ data }) => {
 			<h2 className='text-gray-800 dark:text-gray-200 custom-line-clamp-3 leading-tight text-sm'>
 				{data.title}
 			</h2>
-			<Rating value={data.rating} fractions={2} readOnly className='mb-2' />
+			<div className='flex-inline flex gap-1'>
+				<Rating value={data.rating} fractions={2} readOnly className='mb-2' />
+				<p className='text-sm'>{data.rating.toFixed(1)}</p>
+			</div>
 			<div className='flex items-center justify-between'>
 				<span className='font-semibold text-xl'>${data.price}</span>
 			</div>
-		</div>
+		</Link>
 	)
 }

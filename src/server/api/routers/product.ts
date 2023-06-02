@@ -18,9 +18,25 @@ export const productRouter = createTRPCRouter({
 
 	getAllProducts: publicProcedure.query(async () => {
 		return await prisma.product.findMany({
-			include: {
+			select: {
+				id: true,
+				title: true,
+				price: true,
+				rating: true,
 				images: true
-			}
+			},
 		})
-	})
+	}),
+	getProductById: publicProcedure
+		.input(z.object({id: z.string()})).
+		query(async ({input}) => {
+			return await prisma.product.findUnique({
+				where: {
+					id: input.id
+				},
+				include: {
+					images: true
+				}
+			})
+		})
 })
