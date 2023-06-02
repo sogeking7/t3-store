@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 import { faker } from '@faker-js/faker'
-import { categories } from '../components/layout/filter-bar/filter-bar'
+import { categories } from '../components/layout/category-bar/category-bar'
 
 const prisma = new PrismaClient()
 

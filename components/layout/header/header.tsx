@@ -8,23 +8,31 @@ import { SearchInput } from './search-input'
 
 export const Header: FC = () => {
 	return (
-		<div className='h-[60px]'>
-			<div className='cont flex justify-between items-center h-full gap-4 '>
-				<div className='filter-bar-cont flex justify-start pl-2'>
+		<div className='h-[64px]'>
+			<div className='cont flex justify-between items-center h-full gap-12'>
+				<div className='filter-bar-cont flex justify-start pl-2 basis-1/4'>
 					<Logo />
 				</div>
 
-				<div className='main-cont flex justify-between'>
-					<div className='w-[500px]'>
+				<div className='flex justify-between basis-3/4 w-full gap-8'>
+					<div className='basis-3/4'>
 						<SearchInput />
 					</div>
-					<div className='flex gap-8'>
+					<div className='flex gap-8 basis-1/4'>
 						<div className='flex gap-4 items-center'>
 							<UserButtonComponent />
-							<IconBtn icon={<IconShoppingCart />} path={'/cart'} />
-							<IconBtn icon={<IconHeart />} path={'/wishlist'} />
+							<IconBtn
+								icon={<IconShoppingCart size={20} />}
+								title={'Cart'}
+								path={'/cart'}
+							/>
+							<IconBtn
+								icon={<IconHeart size={20} />}
+								title={'Wishlist'}
+								path={'/wishlist'}
+							/>
 						</div>
-						<div className='border-l dark:border-l-zinc-800 flex pl-4'>
+						<div className='border-l dark:border-l-zinc-700 flex pl-4'>
 							<DarkmodeSwitcher />
 						</div>
 					</div>

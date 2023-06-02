@@ -16,7 +16,7 @@ export const ItemGrid: FC = () => {
 		return <>{'No Data'}</>
 	}
 	return (
-		<div className='md:basis-3/4 w-full grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 gap-x-4 gap-y-8 main-cont h-1 py-2'>
+		<div className='md:basis-3/4 w-full grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 gap-x-4 gap-y-8 h-1 py-2'>
 			{data?.map((product, ind) => {
 				return (
 					<Item

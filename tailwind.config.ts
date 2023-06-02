@@ -25,7 +25,10 @@ export default {
 						color: 'white'
 					}
 				}
-			})
+			}),
+			fontFamily: {
+				body: ['Inter']
+			},
 		}
 	},
 	variants: {},

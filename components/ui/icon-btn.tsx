@@ -4,17 +4,19 @@ import Link from 'next/link'
 interface IconButtonProps {
 	icon: ReactNode
 	path: string
+	title: string
 }
 
-export const IconBtn: FC<IconButtonProps> = ({ icon, path}) => {
+export const IconBtn: FC<IconButtonProps> = ({ icon, path, title }) => {
 	return (
 		<Link href={path}>
 			<button
-			type='button'
-			className={`text-zinc-600 bg-slate-200 hover:bg-slate-300 focus:ring-2 focus:ring-blue-300 focus:outline-none font-medium rounded-xl text-sm p-[4.005px] text-center inline-flex items-center mr-2 dark:text-gray-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:focus:ring-blue-800`}
-		>
-			{icon}
-		</button>
+				type='button'
+				className={`p-[4.005px] text-center items-center flex flex-col text-[12px] w-[60px] h-[40px]`}
+			>
+				<i>{icon}</i>
+				<p className='text-[12px] dark:text-white'>{title}</p>
+			</button>
 		</Link>
 	)
 }
