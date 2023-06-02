@@ -16,7 +16,7 @@ const ThemeSwitch = () => {
 
 	return (
 		<button
-			className={`outline-none rounded-full px-3 ${theme == 'light' ? 'bg-yellow-200 ' : 'dark:bg-indigo-600 '} text-zinc-600 dark:text-gray-100 font-bold appearance-none`}
+			className={`outline-none rounded-full px-3 ${theme == 'light' ? 'bg-yellow-200 ' : 'dark:bg-indigo-600 '} text-zinc-700 dark:text-gray-100 font-bold appearance-none`}
 			onClick={() => {
 				if (theme === 'dark') 
 					setTheme('light')

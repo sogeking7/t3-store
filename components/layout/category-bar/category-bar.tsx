@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { FilterCatBtn } from './filter-cat-button'
+import { FilterCatBtn } from './cat-button'
 import { IconArrowRight } from '@tabler/icons-react'
 
 export const categories = [
@@ -33,7 +33,7 @@ export const categories = [
 	{ id: 28, name: 'Weddings & Events' }
 ]
 
-export const FilterBar: FC = () => {
+export const CategoryBar: FC = () => {
 	return (
 		<div className='w-full h-screen'>
 			<button
@@ -43,7 +43,7 @@ export const FilterBar: FC = () => {
 				Categories
 				<IconArrowRight />
 			</button>
-			<ul className=' font-medium'>
+			<ul>
 				{categories.map(({ name }, index) => (
 					<li key={index}>
 						<FilterCatBtn title={name} />
