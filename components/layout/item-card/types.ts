@@ -1,12 +1,13 @@
 export interface IItemCardProps {
-	data: {
-		id: string
-		title: string
-		price: number
-		rating: number
-		images: Image[]
-		// categoryName: string
-	}
+	data: IItemCard
+}
+
+export interface IItemCard {
+	id: string
+	title: string
+	price: number
+	rating: number
+	images: Image[]
 }
 
 interface Image {
