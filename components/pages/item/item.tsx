@@ -7,9 +7,7 @@ import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react'
 
 const useStyles = createStyles(() => ({
 	controls: {
-		ref: getStylesRef('controls'),
-		transition: 'opacity 150ms ease',
-		opacity: 0
+		ref: getStylesRef('controls')
 	},
 	control: {
 		backgroundColor: 'red'
@@ -35,55 +33,42 @@ const useStyles = createStyles(() => ({
 
 export const Item: FC<IItemProps> = ({ data }) => {
 	const { classes } = useStyles()
+	const slides = data.images.map(({ url, id}) => (
+		<Carousel.Slide key={url}>
+			<Image
+				alt={id.toString()}
+				onClick={e => {
+					e.stopPropagation()
+				}}
+				src={url}
+				width={0}
+				height={0}
+				sizes='100vw'
+				className='object-cover bg-gray-5'
+				style={{ width: '100%', height: '100%' }}
+				// height={carouselHeight}
+			/>
+		</Carousel.Slide>
+	))
 	return (
 		<div className='flex gap-6 w-full'>
-			<div className='rounded-3xl mb-4 w-[41.5%] h-[360px] overflow-hidden'>
+			<div className='rounded-3xl mb-4 w-[41.5%] h-[360px] overflow-hidden bg-gray-100 dark:bg-zinc-700'>
 				<Carousel
 					slideGap={5}
 					height={360}
-                    withIndicators
-                    
+					withIndicators
+					slideSize='75%'
 					nextControlIcon={<IconArrowRight size={16} />}
 					previousControlIcon={<IconArrowLeft size={16} />}
 					classNames={classes}
 				>
-					<Carousel.Slide color='red'>
-						<Image
-							src={data.images[0]!.url}
-							alt='Product Image'
-							className='object-cover bg-gray-5'
-							width={0}
-							height={0}
-							sizes='100vw'
-							style={{ width: '100%', height: '100%' }}
-						/>
-					</Carousel.Slide>
-					<Carousel.Slide color='red'>
-						<Image
-							src={data.images[0]!.url}
-							alt='Product Image'
-							className='object-cover bg-gray-5'
-							width={0}
-							height={0}
-							sizes='100vw'
-							style={{ width: '100%', height: '100%' }}
-						/>
-					</Carousel.Slide>
-                    <Carousel.Slide color='red'>
-						<Image
-							src={data.images[0]!.url}
-							alt='Product Image'
-							className='object-cover bg-gray-5'
-							width={0}
-							height={0}
-							sizes='100vw'
-							style={{ width: '100%', height: '100%' }}
-						/>
-					</Carousel.Slide>
+					{slides}
+					{slides}
+					{slides}
 				</Carousel>
 			</div>
 			<div className='w-[30.5%]'>
-				<h2 className='text-gray-800 dark:text-gray-200 text-lg font-bold mb-2'>
+				<h2 className='text-gray-800 dark:text-gray-200 text-xl font-bold mb-2'>
 					{data.title}
 				</h2>
 				<div className='flex-inline flex gap-1 mb-2'>

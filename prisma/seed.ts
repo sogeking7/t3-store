@@ -6,15 +6,15 @@ const prisma = new PrismaClient()
 
 async function main() {
 	console.log('seeding')
+	// await prisma.category.deleteMany()
 	// await prisma.product.deleteMany()
+	// await initCategories()
 	for (let i = 0; i < 15; i++) {
 		await createProduct()
 	}
-	// await prisma.category.deleteMany()
-	// await initCategories()
 }
 async function createProduct() {
-	const categoryId = faker.number.int({ min: 1, max: categories.length })
+	const categoryId = 1
 
 	console.log('categoryId: ', categoryId)
 	await prisma.product.create({
@@ -38,7 +38,7 @@ async function createProduct() {
 }
 
 async function initCategories() {
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < categories.length; i++) {
 		await prisma.category.create({
 			data: {
 				name: categories[i]!.name,
